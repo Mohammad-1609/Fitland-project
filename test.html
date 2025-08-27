@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>تخفیف ویژه</title>
+  </head>
+  <style>
+
+
+/* استایل‌های پایه (Mobile-First - طرح افقی) */
+.product-card {
+  font-family: 'Vazirmatn', sans-serif;
+  direction: rtl;
+  display: flex;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  margin: 16px auto;
+}
+
+.product-image-container {
+  flex: 1;
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ff4d00;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.product-details {
+  flex: 1.5;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rating {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+.star {
+  color: #ccc;
+  font-size: 16px;
+}
+
+.star.filled {
+  color: #f7a00f;
+}
+
+.product-name,
+.product-sizes {
+  margin: 0;
+  text-align: right;
+  font-size: 14px;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.pricing {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.old-price {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.current-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.color-swatches {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.color-swatch.active {
+  border-color: #333;
+}
+
+
+/* @media query برای دستگاه‌های بزرگ (تبلت و دسکتاپ) */
+@media (min-width: 768px) {
+  .product-card {
+    flex-direction: column; /* تغییر جهت فلکس به عمودی */
+    width: 280px; /* تنظیم عرض ثابت برای دسکتاپ */
+  }
+
+  .product-image-container {
+    flex: none; /* غیرفعال کردن flex-grow */
+  }
+
+  .product-details {
+    flex: none; /* غیرفعال کردن flex-grow */
+    padding: 16px;
+  }
+  
+  .discount-badge {
+    left: auto; /* غیرفعال کردن left */
+    right: 10px; /* بازگشت به گوشه بالا-راست */
+  }
+}
+  </style>
+  <body>
+ <div class="product-card">
+  <div class="product-image">
+    <img src="./image/proud-1.png" alt="تی‌شرت زنانه">
+    <span class="discount-badge">20%</span>
+  </div>
+
+  <div class="product-info">
+    <div class="rating">
+      ★★★☆☆
+    </div>
+    <h3 class="product-title">تی‌شرت زنانه کد 1737</h3>
+    <p class="product-size">از سایز M تا PXL</p>
+    <div class="price">
+      <span class="old-price">۳۳۰,۰۰۰ تومان</span>
+      <span class="new-price">۲۰۰,۰۰۰ تومان</span>
+    </div>
+    <div class="colors">
+      <span class="color red"></span>
+      <span class="color black"></span>
+      <span class="color green"></span>
+    </div>
+  </div>
+</div>
+
+
+<div class="product-card">
+  <div class="product-image-container">
+    <img src="./image/proud-1.png" alt="تیشرت ورزشی زنانه به رنگ سبز تیره" class="product-image" loading="lazy">
+    <span class="discount-badge">۲۰٪</span>
+  </div>
+  <div class="product-details">
+    <div class="rating">
+      <span class="star filled">★</span>
+      <span class="star filled">★</span>
+      <span class="star filled">★</span>
+      <span class="star empty">★</span>
+      <span class="star empty">★</span>
+    </div>
+    <h3 class="product-name">تیشرت زنانه کد ۱۷۳۷</h3>
+    <p class="product-sizes">از سایز M تا ۳XL</p>
+    <div class="pricing">
+      <del class="old-price">۳۲۰,۰۰۰ تومان</del>
+      <span class="current-price">۲۰۰,۰۰۰ تومان</span>
+    </div>
+    <div class="color-swatches">
+      <div class="color-swatch active" style="background-color: #ff0000;"></div>
+      <div class="color-swatch" style="background-color: #555855;"></div>
+      <div class="color-swatch" style="background-color: #3b4d45;"></div>
+    </div>
+  </div>
+</div>
+
+  </body>
+</html>
