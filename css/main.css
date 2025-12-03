@@ -33,6 +33,7 @@ a {
 }
 .image-fitland-header {
   width: 150px;
+  cursor: pointer !important;
 }
 .wrapper-search {
   position: relative;
@@ -57,7 +58,7 @@ a {
   right: 39px;
 }
 .sign-wrapper {
-  width: 142px;
+  width: 72px;
   height: 48px;
   border-radius: 12px;
   cursor: pointer;
@@ -66,6 +67,7 @@ a {
   align-items: center;
   transition: 0.3s ease-in-out;
   background: #f5f3f3;
+  margin-right: 70px;
 }
 .sign-wrapper:hover {
   background-color: #fa541c;
@@ -167,13 +169,15 @@ a {
   }
   .cart-show-wrapper {
     top: -152px;
-    right: 3px;
+    right: 311px;
   }
   .sign-wrapper {
     position: relative;
     top: -97px;
-    right: 158px;
+    right: 221px;
+
     height: 41px;
+    margin-right: unset !important;
   }
   .navbar-section {
     display: none !important;
@@ -858,10 +862,10 @@ div.show-all-product-button-wrapper:hover {
 .weakly {
   margin-right: 83px !important;
 }
-.copy-right,
+/* .copy-right,
 .developer {
   text-align: center;
-}
+} */
 
 .title-details-footer {
   font-size: 16px;
@@ -1406,122 +1410,507 @@ input#search-brand::placeholder {
   width: 115px !important;
 }
 @media screen and (max-width: 440px) {
-  .wrapper-breadcrumb {
-    display: none !important;
-  }
   .wrapper-content-filter {
     display: none !important;
+  }
+  .wrapper-breadcrumb {
+    margin-top: -111px !important;
   }
 }
 
 /* end breadcrumb style */
 
-.product-card {
-  display: flex;
-  flex-direction: column;
-  border-top-right-radius: 16px;
-  border-top-left-radius: 16px;
-  overflow: hidden;
-  border: 1px solid #eee;
+.shop-card {
+  width: 288px;
   background: #fff;
-  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* حالت پیش‌فرض دسکتاپ */
 }
 
-/* تصویر محصول */
-.product-image {
+/* بخش عکس */
+.shop-image {
   position: relative;
+  flex: 1;
 }
 
-.product-image img {
+.shop-image img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
-.discount-badge {
+/* درصد تخفیف */
+.shop-discount {
   position: absolute;
   top: 8px;
-  left: 8px;
+  right: 8px;
   background: #ff5722;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 12px;
   padding: 4px 8px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 /* اطلاعات محصول */
-.product-info {
-  padding: 10px;
+.shop-info {
+  padding: 12px;
+  text-align: right;
+  direction: rtl;
+  flex: 2;
 }
 
-.rating {
-  color: orange;
-  font-size: 0.9rem;
+.shop-rating {
+  color: #ffa500;
+  margin: 6px 0;
+  font-size: 14px;
 }
 
-.product-title {
-  font-size: 1rem;
-  margin: 5px 0;
+.shop-info h3 {
+  font-size: 14px;
+  margin: 6px 0;
 }
 
-.product-size {
-  font-size: 0.9rem;
-  color: gray;
+.shop-info p {
+  font-size: 12px;
+  color: #555;
+  margin: 4px 0;
 }
 
-.price {
+.shop-price {
   margin: 8px 0;
 }
 
-.old-price {
+.shop-old-price {
   text-decoration: line-through;
-  color: gray;
-  margin-left: 5px;
+  color: #aaa;
+  margin-left: 6px;
 }
 
-.new-price {
+.shop-new-price {
   font-weight: bold;
-  color: black;
+  color: #222;
 }
 
-.colors {
+.shop-colors {
   display: flex;
-  gap: 5px;
+  gap: 6px;
+  margin-top: 6px;
 }
 
-.color {
-  width: 15px;
-  height: 15px;
+.shop-color-dot {
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 
-.color.red {
-  background: red;
+.shop-color-black {
+  background: #000;
 }
-.color.black {
-  background: black;
+.shop-color-green {
+  background: #004d40;
 }
-.color.green {
-  background: green;
+.shop-color-red {
+  background: #d32f2f;
 }
 
-/* حالت موبایل */
+/* حالت موبایل (افقی) */
 @media (max-width: 768px) {
-  .product-card {
-    flex-direction: row-reverse;
-    max-width: 100%;
+  .shop-card {
+    flex-direction: row !important; /* عکس راست - متن چپ */
+    width: 100%;
+    max-width: 400px;
+    height: 140px; /* ارتفاع ثابت */
   }
-
-  .product-image {
-    flex: 0 0 40%;
+  .shop-discount {
+    display: none !important;
   }
-
-  .product-info {
+  .shop-image {
     flex: 1;
-    padding: 10px;
+    max-width: 40%;
+    height: 100%;
   }
 
-  .product-image img {
+  .shop-image img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
   }
+
+  .shop-info {
+    flex: 2;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .shop-price {
+    font-size: 12px;
+    margin: 4px 0;
+  }
+  .wrapper-production-section {
+    display: inline-block !important;
+  }
+  .wrapper-production-section .shop-card {
+    margin: 10px 11px 0 0 !important;
+  }
+  .nav-pills {
+    display: none !important;
+  }
+  .tab-content {
+    margin-top: -108px;
+  }
 }
+/* start userAccount style */
+.profile-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 288px;
+  margin: 50px auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  height: 630px;
+}
+
+.profile-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-img-wrapper .add-icon {
+  position: absolute;
+  bottom: 0;
+  right: -5px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.profile-email {
+  font-size: 13px;
+  color: #666;
+}
+
+.menu-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.menu-item i {
+  font-size: 18px;
+  margin-left: 10px;
+  color: #555;
+}
+
+.logout {
+  color: #000302;
+  font-size: 14px;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logout i {
+  margin-left: 8px;
+}
+
+/* خط بین حساب کاربری و بقیه */
+.divider {
+  border-top: 1px solid #194165;
+  margin: -1px 0;
+}
+.wrapper-item-sidebar {
+  margin-top: 50px !important;
+}
+.bi-arrow-right {
+  line-height: 1px;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-card {
+    margin: -80px auto;
+  }
+}
+
+.account-box {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 50px auto;
+}
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+.form-control {
+  border: 1px solid #395886;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: right;
+  padding: 12px 10px;
+}
+.form-label {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: #fff;
+  padding: 0 5px;
+  color: #777;
+  font-size: 14px;
+  transition: 0.2s ease all;
+  pointer-events: none;
+}
+/* وقتی فوکوس شد یا مقدار داشت لیبل بره بالا */
+.form-control:focus + .form-label,
+.form-control:not(:placeholder-shown) + .form-label {
+  top: -8px;
+  font-size: 12px;
+  color: #395886;
+}
+.btn-submit {
+  background-color: #ff4500;
+  color: #fff;
+  border-radius: 6px;
+  width: 100%;
+}
+.btn-submit:hover {
+  background-color: #ccc;
+}
+.title {
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.form-control:focus {
+  box-shadow: none !important;
+  border-color: #395886; /* همون رنگ دور کادر خودت */
+}
+.item-sidebar-profile {
+  color: #194165 !important;
+}
+@media screen and (max-width: 778px) {
+  .details-profile-user {
+    display: none !important;
+  }
+}
+
+/* end userAccount style */
+/* start history order */
+.not-divider {
+  border-top: unset !important;
+  margin: unset !important;
+}
+.order-history {
+  border-bottom-color: #194165;
+}
+.order-history {
+  color: #194165;
+}
+.wrapper-all-section {
+  width: 912px;
+  height: 1700px;
+  border: 1px solid #cbcbcb;
+  border-radius: 16px;
+}
+.title-order span {
+  font-size: 24px;
+  font-weight: 500;
+}
+.title-order i {
+  font-size: 19px;
+  vertical-align: -3px;
+  cursor: pointer;
+}
+.divid-order {
+  margin-top: -2px;
+}
+.wrapper-item-order-1,
+.wrapper-item-order-2,
+.wrapper-item-order-3 {
+  width: 272px;
+  height: 204px;
+  border-radius: 16px;
+  background: #f6f6f6;
+  color: #000306;
+}
+.wrapper-item-order-1 {
+  width: 272px;
+  height: 204px;
+  border-radius: 16px;
+  background: #f6f6f6;
+  font-size: 14px;
+  padding: 27px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wrapper-item-order-1 span {
+  color: #868686;
+  margin-left: 7px;
+}
+.wrapper-order-section-three {
+  width: 864px;
+  height: 159px;
+  background: #f6f6f6;
+  border-radius: 16px;
+  margin-right: 23px;
+}
+.truck-speed {
+  color: #257028 !important;
+  vertical-align: -8px;
+}
+.text-2-order-3 {
+  font-size: 14px;
+  color: #257028;
+}
+.time-order-3 p {
+  color: #868686;
+}
+
+.time-order-3 {
+  font-size: 14px;
+}
+.wrapper-content-2-order-3 {
+  margin: -97px 113px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fff;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  /* width: 864px;
+  height: 208px; */
+}
+.stars {
+  float: left;
+}
+.stars i {
+  color: #ff9800;
+  font-size: 1rem;
+}
+.stars i.inactive {
+  color: #ddd;
+}
+.product-info {
+  flex: 1;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #dc3545;
+  font-size: 0.9rem;
+}
+.discount {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-right: 5px;
+}
+.final-price {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.review-btn {
+  border: 1px solid #ff5722;
+  color: #ff5722;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  float: left;
+}
+.product-img img {
+  border-radius: 8px;
+  max-width: 120px;
+}
+.wrapper-order-section-four {
+  margin-right: 22px !important;
+}
+/* end history order */
+/* start favorites style */
+.wrapper-card-1-favorites {
+  width: 288px;
+  height: 420px;
+  background-color: #f9f9f9;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+}
+.black {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: black;
+  top: -10px;
+}
+.black-2 {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: black;
+  top: -10px;
+  right: 30px;
+}
+.gray {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #cbcbcb;
+  top: -10px;
+  right: 15px;
+}
+.name-cart {
+  font-size: 16px;
+  font-weight: 400;
+  color: #01070d;
+}
+.size-cart {
+  font-size: 12px;
+  color: black;
+  font-weight: 400;
+}
+.price-cart {
+  font-size: 14px;
+  color: black;
+  font-weight: 400;
+}
+.title-favprites {
+  font-size: 24px;
+  color: #404040;
+  font-weight: 700;
+}
+/* end favorites style */
